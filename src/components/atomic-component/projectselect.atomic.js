@@ -30,7 +30,7 @@ export default class ProjectSelect extends Component {
         return (
             <Form.Group controlId="customer-controlselect">
                 <Form.Label>Projects</Form.Label>
-                <Form.Control as="select" onChange={this.onChangeProjectSelect}>
+                <Form.Control as="select" placeholder="Select a project" onChange={this.onChangeProjectSelect}>
                     {
                         this.state.projects.map((option, index) => {
                             return (<option key={index} value={option._id}>{option.name}</option>)

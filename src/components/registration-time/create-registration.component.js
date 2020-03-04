@@ -34,6 +34,7 @@ export default class CreateRegistration extends Component {
     componentDidMount() {
         let registrationTime = new RegistrationTime();
         registrationTime.getAllRegistrationTime((response) =>{
+            console.log("get all registration time: ",response);
             this.setState({registrationTimes: response})
         }, (error) =>{
             console.log("Error on getAllRegistratioTime");
@@ -70,6 +71,9 @@ export default class CreateRegistration extends Component {
 
         registrationTime.sendNewRegistrationTime((response) => {
             console.log("Result on create registration component: ", response);
+            const registrationTimes = Object.assign([], this.state.registrationTimes);
+            registrationTimes.push(response.data);
+            this.setState({registrationTimes: registrationTimes})
         }, (error) => {
             console.log("Error on create registration component: ", error);
         })
@@ -121,12 +125,15 @@ export default class CreateRegistration extends Component {
                 <Form className='mt-5'>
                     <Form.Group controlId="registrationTimeTable">
                         <Container>
-                    <Table striped bordered hover>
+                    <Table responsive striped bordered hover>
                         <thead>
                         <tr>
                             <th>Project</th>
                             <th>Start Date</th>
                             <th>End Date</th>
+                            <th>Difference</th>
+                            <th>Amount Per Hour</th>
+                            <th>Total Amount</th>
                             <th>Description</th>
                             <th>Action</th>
                         </tr>

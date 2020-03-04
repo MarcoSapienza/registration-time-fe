@@ -22,7 +22,7 @@ export default class Project {
         };
         console.log("Bodyrequest: ",bodyRequest);
 
-        post('http://localhost:4000/api/project/new', bodyRequest, response => {
+        post('https://registrationtime-be.herokuapp.com/api/project/new', bodyRequest, response => {
 
             console.log("response from send new project: ",response);
             callback(response);
@@ -35,7 +35,7 @@ export default class Project {
     }
 
     getAllProjects(callback, errorCallback){
-        get('http://localhost:4000/api/project/list',(response)=>{
+        get('https://registrationtime-be.herokuapp.com/api/project/list',(response)=>{
             callback(response.data);
         },(error) => {errorCallback(error)});
     }

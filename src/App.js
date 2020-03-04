@@ -15,6 +15,7 @@ import ListCustomer from "./components/customer/list-customer.component";
 import CreateProject from "./components/project/create-project.component";
 import ListProject from "./components/project/list-project.component";
 import CreateRegistration from "./components/registration-time/create-registration.component";
+import RegistrationTimesList from "./components/registration-time/list-registrationtime.component";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
 
               <NavDropdown title="Registration Time" id="registrationtime-nav-dropdown">
                 <NavDropdown.Item href="/create-registration">Create Registration</NavDropdown.Item>
+                <NavDropdown.Item href="/list-registrationtime-new">New List Reg Time</NavDropdown.Item>
               </NavDropdown>
 
               <NavDropdown title="Customer" id="customer-nav-dropdown">
@@ -68,6 +70,7 @@ function App() {
                 <Route path="/create-project" component={CreateProject} />
                 <Route path="/list-project" component={ListProject} />
                 <Route path="/create-registration" component={CreateRegistration} />
+                <Route path="/list-registrationtime-new" component={RegistrationTimesList}/>
               </Switch>
             </div>
           </Col>

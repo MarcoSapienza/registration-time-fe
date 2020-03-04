@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Project from "../../api/resources/project.resource";
-import Customer from "../../api/resources/customer.resource";
 import CustomerSelect from "../atomic-component/customerselect.atomic";
 
 export default class CreateProject extends Component {

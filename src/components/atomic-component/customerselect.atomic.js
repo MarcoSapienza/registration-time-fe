@@ -29,7 +29,7 @@ export default class CustomerSelect extends Component {
         return (
             <Form.Group controlId="customer-controlselect">
                 <Form.Label>Customers</Form.Label>
-                <Form.Control as="select" onChange={this.onChangeCustomerSelect}>
+                <Form.Control as="select" placeholder="Select a customer" onChange={this.onChangeCustomerSelect}>
                     {
                         this.state.customers.map((option, index) => {
                             return (<option key={index} value={option._id}>{option.name}</option>)

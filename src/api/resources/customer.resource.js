@@ -35,7 +35,7 @@ export default class Customer {
             note: this.note
         }
 
-        post('http://localhost:4000/api/customer/new', bodyRequest, response => {
+        post('https://registrationtime-be.herokuapp.com/api/customer/new', bodyRequest, response => {
 
             console.log("response from send new customer: ",response);
             callback(response);
@@ -48,7 +48,7 @@ export default class Customer {
     }
 
     getAllCustomers(callback, errorCallback){
-        get('http://localhost:4000/api/customer/list',(response)=>{
+        get('https://registrationtime-be.herokuapp.com/api/customer/list',(response)=>{
             callback(response.data);
         },(error) => {errorCallback(error)});
     }
