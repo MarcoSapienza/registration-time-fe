@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
+import {Form} from "react-bootstrap";
 
 import RegistrationTimeTable from "../atomic-component/improvementregistrationtimetable.atomic";
 import RegistrationTime from "../../api/resources/registrationtime.resource";
@@ -6,6 +7,25 @@ import RegistrationTime from "../../api/resources/registrationtime.resource";
 function RegistrationTimesList() {
 
     const [data, setData] = useState([]);
+
+    const handleClick = event => {
+        console.log("Checked: ",event.target);
+    };
+
+    const handleToggle = index => {
+        console.log("index: ",index);
+        // let toggledCopy = [...toggled];
+        // toggledCopy[index] = !toggledCopy[index];
+        // setToggled(toggledCopy);
+        // if( toggledCopy[index] === false ){
+        //     setAllToggled(false);
+        // }
+        // else if (allToggled) {
+        //     setAllToggled(false);
+        // }
+    };
+
+
 
     useEffect(() => {
         (async () => {
@@ -19,6 +39,7 @@ function RegistrationTimesList() {
                     const difference = Math.abs(endDate.getTime() - startDate.getTime()) / 3600000;
                     singleRegistration['difference'] = difference;
                     singleRegistration['totalamount'] = difference * singleRegistration.project[0].amountperhour;
+                    console.log("singleRegistration: ",singleRegistration);
                     return singleRegistration;
                 });
 
@@ -63,6 +84,16 @@ function RegistrationTimesList() {
                     {
                         Header: "Description",
                         accessor: "description"
+                    },
+                    {
+                        Header: "Invoiced",
+                        accessor: "invoiced",
+                        Cell: row => (
+                            <input
+                                type="checkbox"
+                                onChange={() => handleToggle(row)}
+                            />
+                        ),
                     }
 
 
