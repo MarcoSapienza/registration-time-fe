@@ -22,7 +22,7 @@ export default class RegistrationTime {
         };
         console.log("Bodyrequest: ",bodyRequest);
 
-        post('http://localhost:4000/api/registrationtime/new', bodyRequest, response => {
+        post('https://registrationtime-be.herokuapp.com/api/registrationtime/new', bodyRequest, response => {
 
             console.log("response from send new registration time: ",response);
             callback(response);
@@ -35,7 +35,7 @@ export default class RegistrationTime {
     }
 
     getAllRegistrationTime(callback, errorCallback){
-        get('http://localhost:4000/api/registrationtime/list',(response)=>{
+        get('https://registrationtime-be.herokuapp.com/api/registrationtime/list',(response)=>{
             callback(response.data);
         },(error) => {errorCallback(error)});
     }
